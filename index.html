@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Form Validation</title>
+  <style>
+    body { font-family: Arial; margin: 50px; background-color: #f4f4f4; }
+    .form-container { background: white; padding: 20px; border-radius: 10px; max-width: 400px; margin: auto; box-shadow: 0 2px 10px rgba(0,0,0,0.2); }
+    input { display: block; width: 100%; padding: 10px; margin-bottom: 10px; border: 2px solid #ccc; border-radius: 5px; }
+    input.error { border-color: red; background-color: #ffe5e5; }
+    .submit-btn { background-color: #4CAF50; color: white; border: none; cursor: pointer; }
+    h2 { text-align: center; }
+  </style>
+</head>
+<body>
+  <div class="form-container">
+    <h2>📝 Registration Form</h2>
+    <input type="text" id="name" placeholder="Enter your name" />
+    <input type="email" id="email" placeholder="Enter your email" />
+    <button class="submit-btn" onclick="validateForm()">Submit</button>
+  </div>
+
+  <script>
+    function validateForm() {
+      let name = document.getElementById("name");
+      let email = document.getElementById("email");
+      name.classList.remove("error");
+      email.classList.remove("error");
+
+      if (name.value.trim() === "") name.classList.add("error");
+      if (email.value.trim() === "") email.classList.add("error");
+
+      if (name.value && email.value) alert("Form submitted successfully!");
+    }
+  </script>
+</body>
+</html>
